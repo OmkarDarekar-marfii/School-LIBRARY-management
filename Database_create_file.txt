@@ -3,7 +3,7 @@ Omkar Darekar
 
 PROJECT : Library Management System
 
------------------------------------------------------------------------------------------------------------------
+
 SQL QUERIES
 -----------------------------------------------------------------------------------------------------------------
 
@@ -13,13 +13,13 @@ mysql> use mydb;
 Database changed
 
 mysql> create table BOOKS(isbn int(20) not null, Title varchar(25) not null, Category varchar(50) not null, Price int (8) not null, Status varchar(20), Author varchar(20) not null, Publisher varchar(50) not null, Updatation_Date timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP, primary key(isbn));
-Query OK, 0 rows affected, 2 warnings (1.52 sec)
+Query OK, 
 
 mysql> create table Employee(Emp_ID int (5) not null, E_name varchar(50) not null, E_Email varchar(25) not null, Position varchar(10) not null, primary key(Emp_ID));
-Query OK, 0 rows affected, 1 warning (0.61 sec)
+Query OK,
 
 mysql> create table Student(student_ID int (5) not null, Dept varchar(10) not null, student_Name varchar(20), student_Email varchar(25) not null, student_Address varchar(50) not null, Regd_date timestamp not null DEFAULT CURRENT_TIMESTAMP, primary key(student_ID));
-Query OK, 0 rows affected, 1 warning (2.19 sec)
+Query OK, 
 
 mysql> describe Students;
 ERROR 1146 (42S02): Table 'mydb.students' doesn't exist
@@ -48,10 +48,10 @@ mysql> describe employee;
 4 rows in set (0.11 sec)
 
 mysql> create table Issue_Status(Issue_ID int(5) not null, StudentID int(5) not null, Issued_book varchar(25) not null, Issue_date timestamp not null DEFAULT CURRENT_TIMESTAMP,isbn_book int(20) not null, primary key(Issue_ID), constraint foreign key(isbn_book) references BOOKS(isbn), constraint foreign key(StudentID) references Student(student_ID));
-Query OK, 0 rows affected, 3 warnings (1.31 sec)
+Query OK,
 
 mysql> create table Return_Status(Return_ID int(5) not null, Return_StudentID int(5) not null, Return_book varchar(25) not null, Return_date timestamp not null DEFAULT CURRENT_TIMESTAMP, isbn_book2 int(20) not null, primary key(Return_ID), constraint foreign key(isbn_book2) references BOOKS(isbn), constraint foreign key(Return_StudentID) references Issue_Status(StudentID));
-Query OK, 0 rows affected, 3 warnings (0.94 sec)
+Query OK,
 
 mysql> show tables;
 +----------------+
